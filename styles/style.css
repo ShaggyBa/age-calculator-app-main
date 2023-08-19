@@ -1,0 +1,151 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+:root {
+	/* ## Breakpoints */
+	--Mobile: 375px;
+	--Desktop: 1440px;
+
+	/* ## Colors */
+
+	/* ### Primary */
+
+	--Purple: hsl(259, 100%, 65%);
+	--Light-red: hsl(0, 100%, 67%);
+
+	/* ### Neutral */
+
+	--White: hsl(0, 0%, 100%);
+	--Off-white: hsl(0, 0%, 94%);
+	--Light-grey: hsl(0, 0%, 86%);
+	--Smokey-grey: hsl(0, 1%, 44%);
+	--Off-black: hsl(0, 0%, 8%);
+
+	/* ## Typography */
+
+	/* ### Body Copy */
+
+	--Font-size-inputs: 32px;
+
+	/* ### Font */
+	/* 
+	--FamilyFont: [Poppins](https: //fonts.google.com/specimen/Poppins);
+			--Weights: 400i, 700, 800i; */
+
+}
+
+body {
+	background-color: var(--Off-white);
+	width: 100%;
+	font-family: 'Poppins', sans-serif;
+}
+
+.container {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	max-width: var(--Desktop);
+}
+
+.app {
+	background-color: var(--White);
+
+	height: 70%;
+	width: 60%;
+
+	padding: 60px;
+
+	border-radius: 30px 30px 200px 30px;
+}
+
+.calculation {
+	display: flex;
+}
+
+.calculation section {
+	display: flex;
+	flex-direction: column;
+	margin-right: 30px;
+}
+
+.calculation section:last-child {
+	margin-right: 0;
+}
+
+.calculation section input {
+	font-size: var(--Font-size-inputs);
+	font-weight: 700;
+	color: var(--Off-black);
+	max-width: 150px;
+	padding: 15px;
+	border-radius: 8px;
+	border: 1px solid var(--Light-grey);
+	outline: none;
+
+	transition: border .15s ease-out;
+}
+
+.calculation section input:focus {
+	border: 1px solid var(--Purple);
+}
+
+.calculation section input.error {
+	border: 1px solid var(--Light-red);
+}
+
+
+.calculation section label {
+	margin-bottom: 10px;
+	font-size: 14px;
+	font-weight: 700;
+	color: var(--Smokey-grey);
+}
+
+.calculation section label.error {
+	color: var(--Light-red);
+}
+
+
+.results {
+	position: relative;
+	margin-top: 60px;
+	padding-top: 30px;
+	border-top: 1px solid var(--Light-grey);
+	overflow: visible;
+
+	display: flex;
+	flex-direction: column;
+}
+
+#calculate {
+	background-color: var(--Purple);
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+	border: none;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translateY(-50%);
+}
+
+.results>p {
+	font-weight: 800;
+	font-style: italic;
+	font-size: 84px;
+}
+
+.results span {
+	letter-spacing: 15px;
+	color: var(--Purple);
+}
