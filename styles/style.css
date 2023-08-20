@@ -4,7 +4,6 @@
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
-	overflow: hidden;
 }
 
 :root {
@@ -69,12 +68,14 @@ body {
 
 .calculation {
 	display: flex;
+
 }
 
 .calculation section {
 	display: flex;
 	flex-direction: column;
 	margin-right: 30px;
+	position: relative;
 }
 
 .calculation section:last-child {
@@ -103,24 +104,38 @@ body {
 }
 
 
-.calculation section label {
+.calculation__label {
 	margin-bottom: 10px;
 	font-size: 14px;
 	font-weight: 700;
 	color: var(--Smokey-grey);
+	letter-spacing: 3px;
 }
 
-.calculation section label.error {
+.calculation__label.error {
 	color: var(--Light-red);
 }
 
+.calculation__label-validate {
+	position: absolute;
+	bottom: -30px;
+	visibility: hidden;
+	font-size: 13px;
+	font-style: italic;
+	font-weight: 400;
+	color: var(--Light-red);
+}
+
+.calculation__label-validate.error {
+	visibility: visible;
+	z-index: 2;
+}
 
 .results {
 	position: relative;
-	margin-top: 60px;
+	margin-top: 80px;
 	padding-top: 30px;
 	border-top: 1px solid var(--Light-grey);
-	overflow: visible;
 
 	display: flex;
 	flex-direction: column;
@@ -137,6 +152,11 @@ body {
 	top: 0;
 	right: 0;
 	transform: translateY(-50%);
+	transition: background-color 1s ease-out;
+}
+
+#calculate.active {
+	background-color: var(--Off-black);
 }
 
 .results>p {
@@ -146,6 +166,5 @@ body {
 }
 
 .results span {
-	letter-spacing: 15px;
 	color: var(--Purple);
 }

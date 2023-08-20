@@ -34,27 +34,29 @@
 
 			<section class="calculation">
 				<section class="days">
-					<label for="days">DAY</label>
+					<label class="calculation__label" for="days">DAY</label>
 					<input type="text" name="days" id="days" placeholder="DD" maxlength="2" minlength="2">
+					<label class="calculation__label-validate" for="days">Must be a valid day</label>
 				</section>
 
 				<section class="months">
-					<label for="months">MONTH</label>
+					<label class="calculation__label" for="months">MONTH</label>
 					<input type="text" name="months" id="months" placeholder="MM" maxlength="2" minlength="2">
-
+					<label class="calculation__label-validate" for="days">Must be a valid month</label>
 				</section>
 
 				<section class="years">
-					<label for="years">YEAR</label>
+					<label class="calculation__label" for="years">YEAR</label>
 					<input type="text" name="years" id="years" placeholder="YYYY" maxlength="4" minlength="4">
+					<label class="calculation__label-validate" for="days">Must be a valid year</label>
 				</section>
 
 			</section>
 			<section class="results">
 				<button id="calculate"><img src="assets/images/icon-arrow.svg"></button>
-				<p><span id="results__years">--</span>years</p>
-				<p><span id="result__months">--</span>months</p>
-				<p><span id="results__days">--</span>days</p>
+				<p><span id="results__years">- -</span> years</p>
+				<p><span id="result__months">- -</span> months</p>
+				<p><span id="results__days">- -</span> days</p>
 			</section>
 
 		</div>
