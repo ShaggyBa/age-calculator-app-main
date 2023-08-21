@@ -23,6 +23,20 @@ const resultDays = document.getElementById('results__days')
 const resultMonths = document.getElementById('result__months')
 const resultYears = document.getElementById('results__years')
 
+const daysInMonths = {
+	'01': 31,
+	'02': 28,
+	'03': 31,
+	'04': 30,
+	'05': 31,
+	'06': 30,
+	'07': 31,
+	'08': 31,
+	'09': 30,
+	'10': 31,
+	'11': 30,
+	'12': 31
+}
 
 function toggleError(target, condition) {
 	condition ? target.previousElementSibling.classList.add('error') : target.previousElementSibling.classList.remove('error')
@@ -70,16 +84,15 @@ function checkValidity(inputValue) {
 }
 
 function validateDaysInput(daysInput) {
-
 	daysInput.target.value = checkValidity(daysInput)
+
+	checkFilledInputs()
 
 	const value = parseInt(daysInput.target.value)
 
 	if (value < 1 || value > 31) {
 		toggleError(daysInput.target, true)
 		daysInput.target.nextElementSibling.textContent = validationError.days
-
-		calculateButton.classList?.remove('active')
 	}
 	else {
 		toggleError(daysInput.target, false)
@@ -90,13 +103,13 @@ function validateDaysInput(daysInput) {
 function validateMonthsInput(monthsInput) {
 	monthsInput.target.value = checkValidity(monthsInput)
 
+	checkFilledInputs()
+
 	const value = parseInt(monthsInput.target.value)
 
 	if (value < 1 || value > 12) {
 		toggleError(monthsInput.target, true)
 		monthsInput.target.nextElementSibling.textContent = validationError.months
-
-		calculateButton.classList?.remove('active')
 	}
 	else {
 		toggleError(monthsInput.target, false)
@@ -106,15 +119,14 @@ function validateMonthsInput(monthsInput) {
 function validateYearsInput(yearsInput) {
 	yearsInput.target.value = checkValidity(yearsInput)
 
+	checkFilledInputs()
+
 	const value = parseInt(yearsInput.target.value)
 
 	const year = new Date()
 	if (value > year.getFullYear()) {
 		toggleError(yearsInput.target, true)
 		yearsInput.target.nextElementSibling.textContent = validationError.years
-
-		calculateButton.classList?.remove('active')
-
 	}
 	else {
 		toggleError(yearsInput.target, false)
@@ -161,6 +173,12 @@ function checkInputLength(input) {
 		input.target.value = '0' + value
 }
 
+function checkFilledInputs() {
+	if (daysInput.value.length && monthsInput.value.length && yearsInput.value.length)
+		calculateButton.classList.add('active')
+	else
+		calculateButton.classList.remove('active')
+}
 
 
 daysInput.addEventListener('input', validateDaysInput)
